@@ -1,7 +1,7 @@
 package com.tangelogames.zen.commandsloader.service;
 
 import com.tangelogames.zen.commandsloader.core.eventdispatcher.Event;
-import com.tangelogames.zen.commandsloader.core.eventdispatcher.EventDispatcherFactory;
+import com.tangelogames.zen.commandsloader.core.eventdispatcher.EventDispatcherService;
 import com.tangelogames.zen.commandsloader.core.eventdispatcher.EventSubscriber;
 import com.tangelogames.zen.commandsloader.core.eventdispatcher.SimpleEvent;
 
@@ -11,7 +11,7 @@ public class ServicePim implements EventSubscriber {
 
     public ServicePim() {
 
-        EventDispatcherFactory.get().subscribe("event.jurl", this);
+        EventDispatcherService.get().subscribe("event.jurl", this);
     }
 
     @Override
@@ -24,6 +24,6 @@ public class ServicePim implements EventSubscriber {
 
         System.out.printf(" ! ServicePim.doSomething(%d)\n", ++ ServicePim.counter);
 
-        EventDispatcherFactory.get().publish(new SimpleEvent("event.tran", "Event TRAN from ServicePim"));
+        EventDispatcherService.get().publish(new SimpleEvent("event.tran", "Event TRAN from ServicePim"));
     }
 }

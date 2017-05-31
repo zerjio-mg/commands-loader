@@ -1,7 +1,7 @@
 package com.tangelogames.zen.commandsloader.service;
 
 import com.tangelogames.zen.commandsloader.core.eventdispatcher.Event;
-import com.tangelogames.zen.commandsloader.core.eventdispatcher.EventDispatcherFactory;
+import com.tangelogames.zen.commandsloader.core.eventdispatcher.EventDispatcherService;
 import com.tangelogames.zen.commandsloader.core.eventdispatcher.EventSubscriber;
 import com.tangelogames.zen.commandsloader.core.eventdispatcher.SimpleEvent;
 
@@ -11,7 +11,7 @@ public class ServicePam implements EventSubscriber {
 
     public ServicePam() {
 
-        EventDispatcherFactory.get().subscribe("event.tran", this);
+        EventDispatcherService.get().subscribe("event.tran", this);
     }
 
     @Override
@@ -24,6 +24,6 @@ public class ServicePam implements EventSubscriber {
 
         System.out.printf(" ! ServicePam.doWhatever(%d)\n", ++ ServicePam.counter);
 
-        EventDispatcherFactory.get().publish(new SimpleEvent("event.jurl", "Event JURL from ServicePam"));
+        EventDispatcherService.get().publish(new JurlEvent("ServicePam"));
     }
 }

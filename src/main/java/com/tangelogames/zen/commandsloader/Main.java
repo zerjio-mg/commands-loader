@@ -2,9 +2,10 @@ package com.tangelogames.zen.commandsloader;
 
 import com.tangelogames.zen.commandsloader.core.command.CommandsManager;
 import com.tangelogames.zen.commandsloader.core.container.Container;
-import com.tangelogames.zen.commandsloader.service.ServicePam;
-import com.tangelogames.zen.commandsloader.service.ServicePim;
 import com.tangelogames.zen.commandsloader.core.command.Command;
+import com.tangelogames.zen.commandsloader.service.ServicePim;
+import com.tangelogames.zen.commandsloader.service.ServicePam;
+import com.tangelogames.zen.commandsloader.service.ServicePum;
 
 import java.util.List;
 
@@ -14,6 +15,9 @@ public class Main {
 
         Container.getContainer().registre("service.pim", new ServicePim());
         Container.getContainer().registre("service.pam", new ServicePam());
+/* */
+        Container.getContainer().registre("service.pum", new ServicePum());
+/* */
 
         CommandsManager commandsManager = CommandsManager.getManager();
 
